@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#10101b">
+
+    <title>StoryVerse AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+
+                <div>
+                    <h2>StoryVerse</h2>
+                    <span>ARTIFICIAL INTELLIGENCE</span>
+                </div>
+            </div>
+
+            <button class="new-project" id="newProject">
+                + Novo projeto
+            </button>
+
+            <div class="sidebar-label">
+                SEUS PROJETOS
+            </div>
+
+            <div id="projectList" class="project-list"></div>
+
+            <div class="sidebar-bottom">
+                <div class="user-avatar">S</div>
+
+                <div>
+                    <strong>StoryVerse AI</strong>
+                    <span>Escrita criativa</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="main">
+
+            <header class="topbar">
+
+                <div>
+                    <span class="online-dot"></span>
+                    StoryVerse AI
+                </div>
+
+                <button id="memoryButton" class="memory-button">
+                    ◈ Memória do projeto
+                </button>
+
+            </header>
+
+            <!-- TELA INICIAL -->
+            <section id="welcome" class="welcome">
+
+                <div class="welcome-symbol">✦</div>
+
+                <h1>Suas histórias começam aqui.</h1>
+
+                <p>
+                    Crie universos, desenvolva personagens
+                    e transforme suas ideias em histórias
+                    extraordinárias.
+                </p>
+
+                <button id="welcomeProject" class="primary-button">
+                    Criar meu primeiro projeto
+                </button>
+
+            </section>
+
+            <!-- CHAT -->
+            <section id="chat" class="chat hidden">
+
+                <div id="messages" class="messages"></div>
+
+                <form id="chatForm" class="composer">
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Escreva sua ideia ou continue sua história..."
+                        rows="3"
+                        required
+                    ></textarea>
+
+                    <div class="composer-footer">
+
+                        <span>StoryVerse AI</span>
+
+                        <button type="submit" id="sendButton">
+                            Enviar ↑
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p class="disclaimer">
+                    A IA pode cometer erros. Revise informações importantes.
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JANELA DE NOVO PROJETO -->
+    <dialog id="projectDialog">
+
+        <form id="projectForm">
+
+            <h2>Novo projeto</h2>
+
+            <input
+                id="projectName"
+                placeholder="Nome da sua história..."
+                maxlength="100"
+                required
+            >
+
+            <div class="dialog-actions">
+
+                <button type="button" id="cancelProject">
+                    Cancelar
+                </button>
+
+                <button type="submit">
+                    Criar projeto
+                </button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <!-- JANELA DE MEMÓRIA -->
+    <dialog id="memoryDialog">
+
+        <form id="memoryForm">
+
+            <h2>Memória do projeto</h2>
+
+            <p>
+                Guarde personagens, acontecimentos
+                e regras deste universo.
+            </p>
+
+            <textarea
+                id="memoryInput"
+                rows="10"
+            ></textarea>
+
+            <div class="dialog-actions">
+
+                <button type="button" id="closeMemory">
+                    Cancelar
+                </button>
+
+                <button type="submit">
+                    Salvar memória
+                </button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <script src="app.js"></script>
+
+    <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => {
+        console.log("StoryVerse AI instalado com sucesso!");
+      })
+      .catch(error => {
+        console.error("Erro ao registrar:", error);
+      });
+  });
+}
+</script>
+    
+</body>
+
+</html>
